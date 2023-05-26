@@ -1,0 +1,101 @@
+﻿@model IEnumerable<DoctorAp.Models.BookingLeadEntity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    body {
+        background-color: #36393F;
+        color: #FFFFFF;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        font-size: 24px;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .form-group label {
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+    .form-control {
+        background-color: #333333;
+        color: #FFFFFF;
+    }
+
+    .text-danger {
+        color: #FF0000;
+    }
+
+    .btn-primary {
+        background-color: #C64242;
+        border-color: #C64242;
+    }
+
+        .btn-primary:hover {
+            background-color: #9E3333;
+            border-color: #9E3333;
+        }
+
+    a {
+        color: #C64242;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
